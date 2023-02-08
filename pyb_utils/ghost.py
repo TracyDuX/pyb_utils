@@ -1,7 +1,7 @@
 import numpy as np
 import pybullet as pyb
 
-from pyb_utils.math import quaternion_rotate, quaternion_multiply
+from sim_new.pyb_utils.pyb_utils.math import quaternion_rotate, quaternion_multiply
 
 
 class GhostObject:
@@ -113,11 +113,36 @@ class GhostSphere(GhostObject):
         position=None,
         parent_body_uid=None,
         parent_link_index=-1,
-        color=(1, 0, 0, 0),
+        color=(1, 0, 0, 1),
     ):
         visual_uid = pyb.createVisualShape(
             shapeType=pyb.GEOM_SPHERE,
             radius=radius,
+            rgbaColor=color,
+        )
+        super().__init__(
+            visual_uid,
+            position=position,
+            parent_body_uid=parent_body_uid,
+            parent_link_index=parent_link_index,
+        )
+
+class GhostCylinder(GhostObject):
+    """Spherical ghost object."""
+
+    def __init__(
+        self,
+        radius=0.02,
+        length=1,
+        position=None,
+        parent_body_uid=None,
+        parent_link_index=-1,
+        color=(0, 0, 1, 1),
+    ):
+        visual_uid = pyb.createVisualShape(
+            shapeType=pyb.GEOM_CYLINDER,
+            radius=radius,
+            length=length,
             rgbaColor=color,
         )
         super().__init__(
