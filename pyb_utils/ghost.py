@@ -1,7 +1,7 @@
 import numpy as np
 import pybullet as pyb
 
-from sim_new.pyb_utils.pyb_utils.math import quaternion_rotate, quaternion_multiply
+from pyb_utils.math import quaternion_rotate, quaternion_multiply
 
 
 class GhostObject:

@@ -1,5 +1,5 @@
 import pybullet as pyb
-from sim_new.pyb_utils.pyb_utils.math import quaternion_rotate
+from pyb_utils.math import quaternion_rotate
 
 
 def debug_frame_world(size, origin, orientation=(0, 0, 0, 1), line_width=1):
